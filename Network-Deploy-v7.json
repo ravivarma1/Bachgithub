@@ -1,0 +1,274 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nsgs": {
+      "type": "array"
+    },
+    "asgs": {
+      "type": "array"
+    },
+    "gateway": {
+      "type": "object"
+    },
+    "udrs": {
+      "type": "array"
+    },
+    "virtualNetworks": {
+      "type": "array"
+    },
+    "vNetPeers": {
+      "type": "array"
+    },
+    "asgsResourceGroup": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "udrWorkaround": {
+      "true": "[parameters('udrs')]",
+      "false": [
+        {
+          "name": "udrWorkaroundPlaceHolder",
+          "location": "centralus"
+        }
+      ]
+    },
+    "udrs": "[variables('udrWorkaround')[string(not(empty(parameters('udrs'))))]]",
+    "asgWorkaround": {
+      "true": "[parameters('asgs')]",
+      "false": [
+        {
+          "name": "asgWorkaroundPlaceHolder",
+          "location": "centralus"
+        }
+      ]
+    },
+    "asgs": "[variables('asgWorkaround')[string(not(empty(parameters('asgs'))))]]",
+    "gatewayWorkaround": {
+      "true": "[parameters('gateway')]",
+      "false": {
+        "name": "gwWorkaroundPlaceHolder",
+        "location": "centralus",
+        "publicIPName": "pipWorkaroundPlaceHolder"
+      }
+    },
+    "gateway": "[variables('gatewayWorkaround')[string(not(empty(parameters('gateway'))))]]",
+    "peerWorkaround": {
+      "true": "[parameters('vNetPeers')]",
+      "false": [
+        {
+          "connection1Name": "conn1PlaceHolder",
+          "connection2Name": "conn2PlaceHolder",
+          "vNet1": "vNet1PlaceHolder",
+          "vNet2": "RG/vNet2PlaceHolder"
+        }
+      ]
+    },
+    "vNetPeers": "[variables('peerWorkaround')[string(not(empty(parameters('vNetPeers'))))]]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('nsgs')[copyIndex()].name]",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2018-08-01",
+      "dependsOn": [
+        "asgcopy"
+      ],
+      "location": "[parameters('nsgs')[copyIndex()].location]",
+      "copy": {
+        "name": "nsgcopy",
+        "count": "[length(parameters('nsgs'))]"
+      },
+      "properties": {
+        "copy": [
+          {
+            "name": "securityRules",
+            "count": "[length(parameters('nsgs')[copyIndex()].securityRules)]",
+            "input": {
+              "name": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].name]",
+              "properties": {
+                "priority": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.priority]",
+                "sourceAddressPrefix": "[if(not(empty(parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.sourceAddressPrefix)),parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.sourceAddressPrefix,json('null'))]",
+                "sourceApplicationSecurityGroups": "[if(not(empty(parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.sourceApplicationSecurityGroups)),array(json(concat('{\"id\": \"',resourceID(parameters('asgsResourceGroup'),'Microsoft.Network/applicationSecurityGroups',parameters('nsgs')[copyIndex()].SecurityRules[copyIndex('SecurityRules')].properties.sourceApplicationSecurityGroups),'\"}'))),json('null'))]",
+                "protocol": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.protocol]",
+                "destinationPortRange": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.destinationPortRange]",
+                "access": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.access]",
+                "direction": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.direction]",
+                "sourcePortRange": "[parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.sourcePortRange]",
+                "destinationApplicationSecurityGroups": "[if(not(empty(parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.destinationApplicationSecurityGroups)),array(json(concat('{\"id\": \"',resourceID(parameters('asgsResourceGroup'),'Microsoft.Network/applicationSecurityGroups',parameters('nsgs')[copyIndex()].SecurityRules[copyIndex('SecurityRules')].properties.destinationApplicationSecurityGroups),'\"}'))),json('null'))]",
+                "destinationAddressPrefix": "[if(not(empty(parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.destinationAddressPrefix)),parameters('nsgs')[copyIndex()].securityRules[copyIndex('securityRules')].properties.destinationAddressPrefix,json('null'))]"
+              }
+            }
+          }
+        ]     
+      }
+    },
+    {
+      "condition": "[not(empty(parameters('asgs')))]",
+      "name": "[variables('asgs')[copyIndex()].name]",
+      "type": "Microsoft.Network/applicationSecurityGroups",
+      "apiVersion": "2017-09-01",
+      "location": "[resourceGroup().location]",
+      "copy": {
+        "name": "asgcopy",
+        "count": "[length(variables('asgs'))]"
+      },
+      "properties": {}
+    },
+    {
+      "condition": "[not(empty(parameters('udrs')))]",
+      "name": "[variables('udrs')[copyIndex()].name]",
+      "type": "Microsoft.Network/routeTables",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('udrs')[copyIndex()].location]",
+      "copy": {
+        "name": "udrcopy",
+        "count": "[length(variables('udrs'))]"
+      },
+      "properties": {
+        "disableBgpRoutePropagation": false
+      }
+    },
+    {
+      "name": "[parameters('virtualNetworks')[copyIndex()].Name]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2018-08-01",
+      "dependsOn": [
+        "nsgcopy",
+        "udrcopy"
+      ],
+      "copy": {
+        "name": "vnetcopy",
+        "count": "[length(parameters('virtualNetworks'))]"
+      },
+      "location": "[parameters('virtualNetworks')[copyIndex()].location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('virtualNetworks')[copyIndex()].addressPrefix]"
+          ]
+        },
+        "copy": [
+          {
+            "name": "Subnets",
+            "count": "[length(parameters('virtualNetworks')[copyIndex()].Subnets)]",
+            "input": {
+              "name": "[parameters('virtualNetworks')[copyIndex()].Subnets[copyIndex('Subnets')].name]",
+              "properties": {
+                "AddressPrefix": "[parameters('virtualNetworks')[copyIndex()].Subnets[copyIndex('Subnets')].addressPrefix]",
+                "networkSecurityGroup": "[if(not(empty(parameters('virtualNetworks')[copyIndex()].Subnets[copyIndex('Subnets')].NSGName)),json(concat('{\"id\": \"',resourceID('Microsoft.Network/networkSecurityGroups',parameters('virtualNetworks')[copyIndex()].Subnets[copyIndex('Subnets')].NSGName),'\"}')),json('null'))]",
+                "routeTable": "[if(not(empty(parameters('virtualNetworks')[copyIndex()].Subnets[copyIndex('Subnets')].UDRName)),json(concat('{\"id\": \"',resourceID('Microsoft.Network/routeTables',parameters('virtualNetworks')[copyIndex()].Subnets[copyIndex('Subnets')].UDRName),'\"}')),json('null'))]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "[not(empty(parameters('gateway')))]",
+      "name": "[variables('gateway').publicIPName]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('gateway').location]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic"
+      }
+    },
+    {
+      "condition": "[not(empty(parameters('gateway')))]",
+      "name": "[variables('gateway').name]",
+      "type": "Microsoft.Network/virtualNetworkGateways",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('gateway').location]",
+      "dependsOn": [
+        "vnetcopy",
+        "[variables('gateway').publicIPName]"
+      ],
+      "properties": {
+        "gatewayType": "[variables('gateway').type]",
+        "vpnType": "[variables('gateway').vpnType]",
+        "ipConfigurations": [
+          {
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks',variables('gateway').virtualNetwork),'/subnets/GatewaySubnet')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('gateway').publicIPName)]"
+              }
+            },
+            "name": "[concat(variables('gateway').name,'-config')]"
+          }
+        ],
+        "sku": {
+          "name": "[variables('gateway').sku]",
+          "tier": "[variables('gateway').sku]"
+        }
+      }
+    },
+    {
+      "condition": "[not(empty(parameters('vNetPeers')))]",
+      "name": "[concat(variables('vNetPeers')[copyIndex()].vNet1,'/',variables('vNetPeers')[copyIndex()].connection1Name)]",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "apiVersion": "2018-08-01",
+      "dependsOn": [
+        "vnetcopy"
+      ],
+      "copy": {
+        "name": "peerCopy",
+        "count": "[length(variables('vNetPeers'))]"
+      },
+      "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+        "remoteVirtualNetwork": {
+          "id": "[resourceId(split(variables('vNetPeers')[copyIndex()].vNet2, '/')[0], 'Microsoft.Network/virtualNetworks', split(variables('vNetPeers')[copyIndex()].vNet2, '/')[1])]"
+        }
+      }
+    },
+    {
+      "condition": "[not(empty(parameters('vNetPeers')))]",
+      "name": "crossRGDeployment",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "dependsOn": [
+        "vnetcopy"
+      ],
+      "copy": {
+        "name": "crossRgPeerCopy",
+        "count": "[length(variables('vNetPeers'))]"
+      },
+      "resourceGroup": "[split(variables('vNetPeers')[copyIndex()].vNet2, '/')[0]]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+            {
+              "name": "[concat(split(variables('vNetPeers')[copyIndex()].vNet2, '/')[1],'/',variables('vNetPeers')[copyIndex()].connection2Name)]",
+              "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+              "apiVersion": "2018-08-01",
+              "properties": {
+                "allowVirtualNetworkAccess": true,
+                "allowForwardedTraffic": true,
+                "allowGatewayTransit": true,
+                "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                  "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks', variables('vNetPeers')[copyIndex()].vNet1)]"
+                }
+              }
+            }
+          ]
+        },
+        "parameters": {}
+      }
+    }
+  ]
+}
