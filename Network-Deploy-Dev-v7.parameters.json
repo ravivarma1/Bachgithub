@@ -1,0 +1,1365 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nsgs": {
+      "value": [
+        {
+          "Name": "actility-uscn-dev-red-service-nsg",
+          "Location": "centralus",
+          "SecurityRules": [
+            {
+              "name": "i9-i17d",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1001,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-support-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i14",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1000,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 2404,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i15",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1002,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 21,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i15b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1003,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i17",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1004,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "UDP",
+                "destinationPortRange": 123,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i17c",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1005,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 21,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-support-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i3",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1006,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-support-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i4-a1-a1b-a1c-a3-a4-a4a",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1007,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i18",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1008,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 2405,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i19",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1009,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8807,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i20",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1010,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 873,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i23-i23b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1011,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8807,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i23b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1012,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8907,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a4a",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1013,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "internet",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 80,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a17",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1014,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-smp-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a26",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1015,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8808,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a27",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1016,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8807,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a28",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1017,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-support-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a29",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1018,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a30",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1019,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-wlogger-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a31",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1020,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-portal-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "dx3",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1021,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-dx-st-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "Allow-Azure-LB-Inbound",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "AzureLoadBalancer",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4000
+              }
+            },
+            {
+              "name": "Deny-All-Inbound",
+              "properties": {
+                "access": "Deny",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4010
+              }
+            }
+          ]
+        },
+        {
+          "Name": "actility-uscn-dev-orange-service-nsg",
+          "Location": "centralus",
+          "SecurityRules": [
+            {
+              "name": "i22d",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1001,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9092,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i22e",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1002,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-lrc-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9093,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i24",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1003,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 2888,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i25",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1004,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3888,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i26",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1005,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9092,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i26b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1006,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9093,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i27-i28",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1007,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 2181,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i29a",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1008,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9092,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "i29b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1009,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9093,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a5",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1010,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-smp-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a5a",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1011,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-smp-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a5b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1012,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 7121,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-smp-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a5c",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1013,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8121,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-smp-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a8",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1014,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8080,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a10",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1015,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 80,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a11",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1016,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8088,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a11b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1017,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9080,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a12a",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1018,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 80,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-wlogger-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a12b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1019,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8080,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-wlogger-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a14",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1020,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 80,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-portal-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a14b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1021,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 8080,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-as-portal-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a29c",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1022,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9092,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "a29d",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1023,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 9093,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "dx1",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1024,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-proxy-http-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 443,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-dx-st-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "Allow-Azure-LB-Inbound",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "AzureLoadBalancer",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4000
+              }
+            },
+            {
+              "name": "Deny-All-Inbound",
+              "properties": {
+                "access": "Deny",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4010
+              }
+            }
+          ]
+        },
+        {
+          "Name": "actility-uscn-dev-green-service-nsg",
+          "Location": "centralus",
+          "SecurityRules": [
+            {
+              "name": "d2",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1001,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-smp-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3306,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d5",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1002,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-wlogger-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3306,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d6",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1003,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-portal-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3306,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d7",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1004,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3306,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d8",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1005,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3306,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d9",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1006,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 4567,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d10",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1007,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 4568,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d11",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1008,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 4444,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d12",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1009,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-wlogger-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27019,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d13",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1010,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-wlogger-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27018,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d14",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1011,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27019,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-conf-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d15",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1012,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-as-twa-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27018,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d15b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1013,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27019,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-conf-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d15c",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1014,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-kk-broker-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27018,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d16",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1015,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-mg-conf-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27019,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-conf-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d17",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1016,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-mg-conf-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27018,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d18",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1017,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-mg-conf-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27018,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-arb-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "d19-d20-d21",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1018,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 27018,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-mg-node-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "dx2",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1019,
+                "sourceApplicationSecurityGroups": "actility-uscn-dev-dx-st-service-asg",
+                "sourceAddressPrefix": "",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 3306,
+                "destinationApplicationSecurityGroups": "actility-uscn-dev-sql-service-asg",
+                "destinationAddressPrefix": ""
+              }
+            },
+            {
+              "name": "Allow-Azure-LB-Inbound",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "AzureLoadBalancer",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4000
+              }
+            },
+            {
+              "name": "Deny-All-Inbound",
+              "properties": {
+                "access": "Deny",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4010
+              }
+            }
+          ]
+        },
+        {
+          "Name": "actility-uscn-dev-red-admin-nsg",
+          "Location": "centralus",
+          "SecurityRules": [
+            {
+              "name": "m2",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1000,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "10.125.0.10",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 5666,
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "10.125.11.0/24"
+              }
+            },
+            {
+              "name": "c1",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1001,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "10.125.0.0/24",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "10.125.11.0/24"
+              }
+            },
+            {
+              "name": "Allow-Azure-LB-Inbound",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "AzureLoadBalancer",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4000
+              }
+            },
+            {
+              "name": "Deny-All-Inbound",
+              "properties": {
+                "access": "Deny",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4010
+              }
+            }
+          ]
+        },
+        {
+          "Name": "actility-uscn-dev-orange-admin-nsg",
+          "Location": "centralus",
+          "SecurityRules": [
+            {
+              "name": "m2b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1000,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "10.125.0.10",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 5666,
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "10.125.12.0/24"
+              }
+            },
+            {
+              "name": "c1b",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1001,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "10.125.0.0/24",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "10.125.12.0/24"
+              }
+            },
+            {
+              "name": "Allow-Azure-LB-Inbound",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "AzureLoadBalancer",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4000
+              }
+            },
+            {
+              "name": "Deny-All-Inbound",
+              "properties": {
+                "access": "Deny",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4010
+              }
+            }
+          ]
+        },
+        {
+          "Name": "actility-uscn-dev-green-admin-nsg",
+          "Location": "centralus",
+          "SecurityRules": [
+            {
+              "name": "m2c",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1000,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "10.125.0.10",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 5666,
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "10.125.13.0/24"
+              }
+            },
+            {
+              "name": "c1c",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "priority": 1003,
+                "sourceApplicationSecurityGroups": "",
+                "sourceAddressPrefix": "10.125.0.0/24",
+                "sourcePortRange": "*",
+                "protocol": "TCP",
+                "destinationPortRange": 22,
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "10.125.13.0/24"
+              }
+            },
+            {
+              "name": "Allow-Azure-LB-Inbound",
+              "properties": {
+                "access": "Allow",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "AzureLoadBalancer",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4000
+              }
+            },
+            {
+              "name": "Deny-All-Inbound",
+              "properties": {
+                "access": "Deny",
+                "direction": "Inbound",
+                "sourceAddressPrefix": "*",
+                "protocol": "*",
+                "sourceApplicationSecurityGroups": "",
+                "destinationApplicationSecurityGroups": "",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "*",
+                "sourcePortRange": "*",
+                "priority": 4010
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "asgs": {
+      "value": []
+    },
+    "gateway": {
+      "value": {}
+    },
+    "udrs": {
+      "value": [
+        {
+          "name": "actility-uscn-dev-udr",
+          "location": "centralus"
+        }
+      ]
+    },
+    "virtualNetworks": {
+      "value": [
+        {
+          "Name": "actility-uscn-dev-vnt",
+          "location": "centralus",
+          "addressPrefix": "10.125.8.0/21",
+          "Subnets": [
+            {
+              "Name": "actility-uscn-dev-red-service-snt",
+              "AddressPrefix": "10.125.8.0/24",
+              "NSGName": "actility-uscn-dev-red-service-nsg",
+              "UDRName": ""
+            },
+            {
+              "Name": "actility-uscn-dev-orange-service-snt",
+              "AddressPrefix": "10.125.9.0/24",
+              "NSGName": "actility-uscn-dev-orange-service-nsg",
+              "UDRName": ""
+            },
+            {
+              "Name": "actility-uscn-dev-green-service-snt",
+              "AddressPrefix": "10.125.10.0/24",
+              "NSGName": "actility-uscn-dev-green-service-nsg",
+              "UDRName": ""
+            },
+            {
+              "Name": "actility-uscn-dev-red-admin-snt",
+              "AddressPrefix": "10.125.11.0/24",
+              "NSGName": "actility-uscn-dev-red-admin-nsg",
+              "UDRName": ""
+            },
+            {
+              "Name": "actility-uscn-dev-orange-admin-snt",
+              "AddressPrefix": "10.125.12.0/24",
+              "NSGName": "actility-uscn-dev-orange-admin-nsg",
+              "UDRName": ""
+            },
+            {
+              "Name": "actility-uscn-dev-green-admin-snt",
+              "AddressPrefix": "10.125.13.0/24",
+              "NSGName": "actility-uscn-dev-green-admin-nsg",
+              "UDRName": ""
+            }
+          ]
+        }
+      ]
+    },
+    "vNetPeers": {
+      "value": [
+        {
+          "connection1Name": "actility-uscn-dev-vnt-peer-actility-uscn-admin-vnt",
+          "connection2Name": "actility-uscn-admin-vnt-peer-actility-uscn-dev-vnt",
+          "vNet1": "actility-uscn-dev-vnt",
+          "vNet2": "actility-uscn-admin-rsg/actility-uscn-admin-vnt"
+        }
+      ]
+    },
+    "asgsResourceGroup": {
+      "value": "actility-uscn-admin-rsg"
+    }
+  }
+}
