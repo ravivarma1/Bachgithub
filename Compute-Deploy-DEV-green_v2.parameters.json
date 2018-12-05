@@ -1,0 +1,88 @@
+{
+    "contentVersion": "1.1.0.0",
+    "parameters": {
+        "vmSpec": {
+            "value": [
+                {
+                    "resourceName": "actility-uscn-dev-a-mg-node-1-vm",
+                    "vmName": "DEV-A-MG-NODE-1",
+                    "vmSize": "Standard_E4s_v3",
+                    "vmDataDisk": 256,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.10.34",
+                    "nic0subnet": "actility-uscn-dev-green-service-snt",
+                    "nic0nsg": "actility-uscn-dev-green-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-mg-node-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.13.34",
+                    "nic1subnet": "actility-uscn-dev-green-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-green-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-mg-node-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-green-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-sql-1-vm",
+                    "vmName": "DEV-A-SQL-1",
+                    "vmSize": "Standard_E8s_v3",
+                    "vmDataDisk": 256,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.10.4",
+                    "nic0subnet": "actility-uscn-dev-green-service-snt",
+                    "nic0nsg": "actility-uscn-dev-green-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-sql-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.13.4",
+                    "nic1subnet": "actility-uscn-dev-green-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-green-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-sql-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-green-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-zk-master-1-vm",
+                    "vmName": "DEV-A-ZK-MASTER-1",
+                    "vmSize": "Standard_F2s_v2",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.10.8",
+                    "nic0subnet": "actility-uscn-dev-green-service-snt",
+                    "nic0nsg": "actility-uscn-dev-green-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-zk-master-service-asg",
+                    "nic0asg1": "actility-uscn-dev-green-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.13.8",
+                    "nic1subnet": "actility-uscn-dev-green-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-green-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-zk-master-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-green-admin-asg"
+                }
+            ]
+        },
+        "virtualNetworkName": {
+            "value": "actility-uscn-dev-vnt"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "actility-uscn-dev-network-rsg"
+        },
+        "ASGsResourceGroup": {
+            "value": "actility-uscn-admin-rsg"
+        },
+        "admin-default-gateway": {
+            "value": "10.125.13.1"
+        },
+        "admin-subnet": {
+            "value": "10.125.0.0/24"
+        },
+        "imageId": {
+            "value": "/subscriptions/ca4aac28-a514-4213-9cc4-6b7618fb063e/resourceGroups/actility-uscn-admin-rsg/providers/Microsoft.Compute/images/actility-uscn-custom-centos6.9-img"
+        },
+        "adminUsername": {
+            "value": "tech"
+        },
+        "adminPasswordOrKey": {
+            "value": "pJqbP2IY2WBs"
+        }
+    },
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#"
+}

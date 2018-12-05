@@ -1,0 +1,196 @@
+{
+    "contentVersion": "1.1.0.0",
+    "parameters": {
+        "vmSpec": {
+            "value": [
+                {
+                    "resourceName": "actility-uscn-dev-a-as-smp-1-vm",
+                    "vmName": "DEV-A-AS-SMP-1",
+                    "vmSize": "Standard_D4s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.100",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-as-smp-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.100",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-as-smp-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-as-twa-1-vm",
+                    "vmName": "DEV-A-AS-TWA-1",
+                    "vmSize": "Standard_D16s_v3",
+                    "vmDataDisk": 20,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.50",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-as-twa-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.50",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-as-twa-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-as-portal-1-vm",
+                    "vmName": "DEV-A-AS-PORTAL-1",
+                    "vmSize": "Standard_D4s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.161",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-as-portal-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.161",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-as-portal-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-as-wlogger-1-vm",
+                    "vmName": "DEV-A-AS-WLOGGER-1",
+                    "vmSize": "Standard_D4s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.153",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-as-wlogger-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.153",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-as-wlogger-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-as-rca-1-vm",
+                    "vmName": "DEV-A-AS-RCA-1",
+                    "vmSize": "Standard_D2s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.112",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-as-rca-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.112",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-as-rca-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-kk-broker-1-vm",
+                    "vmName": "DEV-A-KK-BROKER-1",
+                    "vmSize": "Standard_D2s_v3",
+                    "vmDataDisk": 32,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.91",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-kk-broker-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.91",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-kk-broker-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-dcos-bootstrap-1-vm",
+                    "vmName": "DEV-A-DCOS-BOOTSTRAP-1",
+                    "vmSize": "Standard_E2s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.20",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-dcos-bootstrap-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.20",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-dcos-bootstrap-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-dcos-as-1-vm",
+                    "vmName": "DEV-A-DCOS-AS-1",
+                    "vmSize": "Standard_E2s_v3",
+                    "vmDataDisk": 32,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.21",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-dcos-as-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.21",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-dcos-as-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-dx-st-1-vm",
+                    "vmName": "DEV-A-DX-ST-1",
+                    "vmSize": "Standard_E2s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.9.4",
+                    "nic0subnet": "actility-uscn-dev-orange-service-snt",
+                    "nic0nsg": "actility-uscn-dev-orange-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-dx-st-service-asg",
+                    "nic0asg1": "actility-uscn-dev-orange-service-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "10.125.12.4",
+                    "nic1subnet": "actility-uscn-dev-orange-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-orange-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-dx-st-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-orange-admin-asg"
+                }
+            ]
+        },
+        "virtualNetworkName": {
+            "value": "actility-uscn-dev-vnt"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "actility-uscn-dev-network-rsg"
+        },
+        "ASGsResourceGroup": {
+            "value": "actility-uscn-admin-rsg"
+        },
+        "admin-default-gateway": {
+            "value": "10.125.12.1"
+        },
+        "admin-subnet": {
+            "value": "10.125.0.0/24"
+        },
+        "imageId": {
+            "value": "/subscriptions/ca4aac28-a514-4213-9cc4-6b7618fb063e/resourceGroups/actility-uscn-admin-rsg/providers/Microsoft.Compute/images/actility-uscn-custom-centos6.9-img"
+        },
+        "adminUsername": {
+            "value": "tech"
+        },
+        "adminPasswordOrKey": {
+            "value": "pJqbP2IY2WBs"
+        }
+    },
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#"
+}

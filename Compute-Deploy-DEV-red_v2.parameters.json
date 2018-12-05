@@ -1,0 +1,106 @@
+{
+    "contentVersion": "1.1.0.0",
+    "parameters": {
+        "vmSpec": {
+            "value": [
+                {
+                    "resourceName": "actility-uscn-dev-a-slrc-1-vm",
+                    "vmName": "DEV-A-SLRC-1",
+                    "vmSize": "Standard_D2s_v3",
+                    "vmDataDisk": 32,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.8.33",
+                    "nic0subnet": "actility-uscn-dev-red-service-snt",
+                    "nic0nsg": "actility-uscn-dev-red-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-slrc-service-asg",
+                    "nic0asg1": "actility-uscn-dev-red-service-asg",
+                    "publicIP": 1,
+                    "nic1staticIp": "10.125.11.33",
+                    "nic1subnet": "actility-uscn-dev-red-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-red-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-slrc-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-red-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-proxy-http-1-vm",
+                    "vmName": "DEV-A-PROXY-HTTP-1",
+                    "vmSize": "Standard_D2s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.8.41",
+                    "nic0subnet": "actility-uscn-dev-red-service-snt",
+                    "nic0nsg": "actility-uscn-dev-red-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-proxy-http-service-asg",
+                    "nic0asg1": "actility-uscn-dev-red-service-asg",
+                    "publicIP": 1,
+                    "nic1staticIp": "10.125.11.41",
+                    "nic1subnet": "actility-uscn-dev-red-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-red-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-proxy-http-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-red-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-support-1-vm",
+                    "vmName": "DEV-A-SUPPORT-1",
+                    "vmSize": "Standard_D2s_v3",
+                    "vmDataDisk": "null",
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.8.25",
+                    "nic0subnet": "actility-uscn-dev-red-service-snt",
+                    "nic0nsg": "actility-uscn-dev-red-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-support-service-asg",
+                    "nic0asg1": "actility-uscn-dev-red-service-asg",
+                    "publicIP": 1,
+                    "nic1staticIp": "10.125.11.25",
+                    "nic1subnet": "actility-uscn-dev-red-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-red-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-support-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-red-admin-asg"
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-lrc-1-vm",
+                    "vmName": "DEV-A-LRC-1",
+                    "vmSize": "Standard_D2s_v3",
+                    "vmDataDisk": 32,
+                    "vmZone": 1.0,
+                    "nic0staticIp": "10.125.8.9",
+                    "nic0subnet": "actility-uscn-dev-red-service-snt",
+                    "nic0nsg": "actility-uscn-dev-red-service-nsg",
+                    "nic0asg0": "actility-uscn-dev-lrc-service-asg",
+                    "nic0asg1": "actility-uscn-dev-red-service-asg",
+                    "publicIP": 1,
+                    "nic1staticIp": "10.125.11.9",
+                    "nic1subnet": "actility-uscn-dev-red-admin-snt",
+                    "nic1nsg": "actility-uscn-dev-red-admin-nsg",
+                    "nic1asg0": "actility-uscn-dev-lrc-admin-asg",
+                    "nic1asg1": "actility-uscn-dev-red-admin-asg"
+                }
+            ]
+        },
+        "virtualNetworkName": {
+            "value": "actility-uscn-dev-vnt"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "actility-uscn-dev-network-rsg"
+        },
+        "ASGsResourceGroup": {
+            "value": "actility-uscn-admin-rsg"
+        },
+        "admin-default-gateway": {
+            "value": "10.125.11.1"
+        },
+        "admin-subnet": {
+            "value": "10.125.0.0/24"
+        },
+        "imageId": {
+            "value": "/subscriptions/ca4aac28-a514-4213-9cc4-6b7618fb063e/resourceGroups/actility-uscn-admin-rsg/providers/Microsoft.Compute/images/actility-uscn-custom-centos6.9-img"
+        },
+        "adminUsername": {
+            "value": "tech"
+        },
+        "adminPasswordOrKey": {
+            "value": "pJqbP2IY2WBs"
+        }
+    },
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#"
+}
