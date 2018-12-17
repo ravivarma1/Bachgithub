@@ -58,6 +58,9 @@
         "diagStorageAccountName": {
             "value": "actuscnadmindiagsta"
         },
+        "imageId": {
+            "value": "/subscriptions/ca4aac28-a514-4213-9cc4-6b7618fb063e/resourceGroups/actility-uscn-admin-rsg/providers/Microsoft.Compute/images/actility-uscn-custom-centos6.9-img"
+        },
         "scheduleRunTimes": {
             "value": ["02:00"]
         },
