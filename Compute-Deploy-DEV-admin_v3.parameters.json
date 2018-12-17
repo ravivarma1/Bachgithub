@@ -1,0 +1,87 @@
+{
+    "contentVersion": "1.1.0.0",
+    "parameters": {
+        "vmSpec": {
+            "value": [
+                {
+                    "resourceName": "actility-uscn-dev-a-nagios-1-vm",
+                    "vmName": "DEV-A-NAGIOS-1",
+                    "vmSize": "Standard_E2s_v3",
+                    "vmDataDisk": 32,
+                    "vmZone": 1,
+                    "nic0staticIp": "10.125.0.10",
+                    "nic0subnet": "actility-uscn-dev-admin-snt",
+                    "nic0nsg": "actility-uscn-dev-admin-nsg",
+                    "nic0asg0": "actility-uscn-dev-as-nagios-asg",
+                    "nic0asg1": "actility-uscn-dev-admin-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "null",
+                    "nic1subnet": "null",
+                    "nic1nsg": "null",
+                    "nic1asg0": "null",
+                    "nic1asg1": "null",
+                    "snapshot": 0
+                },
+                {
+                    "resourceName": "actility-uscn-dev-a-repo-1-vm",
+                    "vmName": "DEV-A-REPO-1",
+                    "vmSize": "Standard_E2s_v3",
+                    "vmDataDisk": 32,
+                    "vmZone": 1,
+                    "nic0staticIp": "10.125.0.20",
+                    "nic0subnet": "actility-uscn-dev-admin-snt",
+                    "nic0nsg": "actility-uscn-dev-admin-nsg",
+                    "nic0asg0": "actility-uscn-dev-repo-asg",
+                    "nic0asg1": "actility-uscn-dev-admin-asg",
+                    "publicIP": 0,
+                    "nic1staticIp": "null",
+                    "nic1subnet": "null",
+                    "nic1nsg": "null",
+                    "nic1asg0": "null",
+                    "nic1asg1": "null",
+                    "snapshot": 1
+                }
+            ]
+        },
+        "virtualNetworkName": {
+            "value": "actility-uscn-admin-vnt"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "actility-uscn-admin-rsg"
+        },
+        "adminUsername": {
+            "value": "tech"
+        },
+        "adminPasswordOrKey": {
+            "value": "pJqbP2IY2WBs"
+        },
+        "diagStorageAccountName": {
+            "value": "actuscnadmindiagsta"
+        },
+        "scheduleRunTimes": {
+            "value": ["02:00"]
+        },
+        "dailyRetentionDurationCount": {
+            "value": 7
+        },
+        "daysOfTheWeek": {
+            "value": ["Monday", "Wednesday", "Friday"]
+        },
+        "weeklyRetentionDurationCount": {
+            "value": 6
+        },
+        "monthlyRetentionDurationCount": {
+            "value": 12
+        },
+        "monthsOfYear": {
+            "value": ["January", "March", "May", "June", "August"]
+        },
+        "yearlyRetentionDurationCount": {
+            "value": 2
+        },
+        "timeZone": {
+            "value": "Central Standard Time"
+        }
+    },
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#"
+}
